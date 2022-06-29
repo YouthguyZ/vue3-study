@@ -1,15 +1,13 @@
 <script setup>
-import { ref } from 'vue';
-import son from './components/son.vue'
-
-const car=ref('GTR')
-const changecar = () => {
-  car.value=car.value
+// 函数过滤器 废弃 filter
+import dayjs from 'dayjs'
+const timeNow =Date.now();
+const timeFormate = (time)=> {
+  return dayjs(time).format('YYYY-MM-DD')
 }
+
 </script>
 
 <template>
-<p>父组件</p>
-{{car}}
-<son :car=car @changecar="changecar"/>
+  {{timeFormate(timeNow)}}
 </template>
